@@ -12,6 +12,7 @@
   "version": "1.0.0",
   "description": "This project is used for learning react",
   "scripts": {
+    "start": "npx parcel index.html",
     "test": "jest"
   },
   "author": "Utkarsh",
