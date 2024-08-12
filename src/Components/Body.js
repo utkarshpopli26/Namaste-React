@@ -1,6 +1,5 @@
 import React from 'react';
 import { useState } from "react";
-import resList from "../Utils/mockData";
 import RestaurantCard from "./RestaurantCard";
 
 // Main body
