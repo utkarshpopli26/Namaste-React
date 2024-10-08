@@ -37,21 +37,9 @@ li:hover{
     margin: 10px;
 }
 
-.search-bar{
-    border: 2px solid gray;
-    margin: 10px;
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    width: 30%;
-    align-items: center;
-    height: 30%;
-}
-
 .res-card{
     border: 2px solid gray;
     width: 200px;
-    height: 300px;
     border-radius: 10px;
     /* display: flex;
     justify-content: center; */
