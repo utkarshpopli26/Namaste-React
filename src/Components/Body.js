@@ -3,6 +3,7 @@ import { useState } from "react";
 import RestaurantCard from "./RestaurantCard";
 import { useEffect } from "react";
 import { Link } from 'react-router-dom';
+import Shimmer from './Shimmer'
 
 // Main body
 const Body = () =>  {
@@ -27,7 +28,7 @@ const Body = () =>  {
         setlistOfFilteredRestaurants(json.data?.cards[1].card?.card?.gridElements?.infoWithStyle?.restaurants);
     };
 
-    return (
+    return listOfFilteredRestaurants.length == 0 ? ( <Shimmer/> ) : (
         <div className="body">
             <div className="search">
             <input type="text" data-testid="searchInput" className="border border-solid border-black" value={searchText}

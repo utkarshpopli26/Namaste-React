@@ -63,3 +63,18 @@ li:hover{
 span{
     text-align: center;
 }
+
+.shimmer-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.shimmer-card{
+    background-color: lightgrey;
+    border: 2px solid gray;
+    width: 400px;
+    height: 400px;
+    border-radius: 10px;
+    margin: 10px;
+}
