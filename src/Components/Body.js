@@ -1,17 +1,19 @@
 import React from 'react';
 import { useState } from "react";
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, {withPromotedLabel} from "./RestaurantCard";
 import { useEffect } from "react";
 import { Link } from 'react-router-dom';
 import Shimmer from './Shimmer'
 
+
+
 // Main body
 const Body = () =>  {
     // useState Hook
-        let [listOfRestaurants, setlistOfRestaurants] = useState([]);
-        let [listOfFilteredRestaurants, setlistOfFilteredRestaurants] = useState([]);
-        const [searchText, setSearchText] = useState("");
-
+    let [listOfRestaurants, setlistOfRestaurants] = useState([]);
+    let [listOfFilteredRestaurants, setlistOfFilteredRestaurants] = useState([]);
+    const [searchText, setSearchText] = useState("");
+    const RestaurantwithPromoted = withPromotedLabel(RestaurantCard);
 
     // hook which gets invoked after the component is rendered.
     useEffect(() => {
@@ -69,7 +71,7 @@ const Body = () =>  {
                     key={restaurant?.info.id}
                     to={"/restaurants/" + restaurant?.info.id}
                 >
-                    <RestaurantCard resData={restaurant?.info} />
+                    {restaurant?.info.promoted ? (<RestaurantwithPromoted resData={restaurant?.info} />) : (<RestaurantCard resData={restaurant?.info} />) }
                 </Link>
             ))}
             </div>
