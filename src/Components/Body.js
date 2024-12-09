@@ -33,38 +33,41 @@ const Body = () =>  {
     return listOfFilteredRestaurants.length == 0 ? ( <Shimmer/> ) : (
         <div className="body">
             <div className="search">
-            <input type="text" data-testid="searchInput" className="border border-solid border-black" value={searchText}
-                onChange={(e) => {
-                setSearchText(e.target.value);
-            }}
-            />
-            <button className="px-4 py-2 bg-green-100 m-4 rounded-lg"
-                onClick={() => {
-                    // Filter the restraunt cards and update the UI
-                    // searchText
-                    console.log(searchText);
+                <div> 
+                    <input type="text" data-testid="searchInput" value={searchText} className="search-bar"
+                    onChange={(e) => {
+                        setSearchText(e.target.value);
+                    }}
+                    />
+                </div>
+                <div>
+                    <button className="search-btn"
+                        onClick={() => {
+                            // Filter the restraunt cards and update the UI
+                            // searchText
+                            console.log(searchText);
 
-                    const filteredRestaurant = listOfRestaurants.filter((res) =>
-                        res.info.name.toLowerCase().includes(searchText.toLowerCase())
-                    );
+                            const filteredRestaurant = listOfRestaurants.filter((res) =>
+                                res.info.name.toLowerCase().includes(searchText.toLowerCase())
+                            );
 
-                    setlistOfFilteredRestaurants(filteredRestaurant);
-                }}> Search
-            </button>
-            </div>
+                            setlistOfFilteredRestaurants(filteredRestaurant);
+                        }}> Search
+                    </button>
+                </div>
 
-            <div className="filter">
-                <button className="filter-btn" onClick={() => {
-                    const filteredList = listOfRestaurants.filter((restaurant) => {return restaurant.info.avgRating > 4});
-                    setlistOfFilteredRestaurants(filteredList);
-                    setlistOfRestaurants(filteredList);
-                }}>
-                    Filter Top Rated
-                </button>
-            </div>
-
+                <div className="filter">
+                    <button className="filter-btn" onClick={() => {
+                        const filteredList = listOfRestaurants.filter((restaurant) => {return restaurant.info.avgRating > 4});
+                        setlistOfFilteredRestaurants(filteredList);
+                        setlistOfRestaurants(filteredList);
+                    }}>
+                        Filter Top Rated
+                    </button>
+                </div>
             
-
+            </div>
+            
             <div className="res-container">
             {listOfFilteredRestaurants.map((restaurant) => (
                 <Link
